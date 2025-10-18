@@ -332,13 +332,25 @@ code {
   font-size: 13px;
   text-align: center;
 }
-/* onion badge */
-a[href$=".onion"]::after {
-  content: "  onion";
-  font-size: 11px;
-  color: #001b12;
-  background: var(--accent);
-  border-radius: 999px;
-  padding: 1px 7px;
-  margin-left: 6px;
+/* FAQ Section */
+.faq-item {
+  margin: 16px 0;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h5 {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.faq-item p {
+  margin: 0;
+  line-height: 1.6;
 }
