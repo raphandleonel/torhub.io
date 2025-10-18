@@ -1,0 +1,343 @@
+:root {
+  --bg: #07090c;
+  --ink: #e6f2ff;
+  --muted: #9fb2c8;
+  --accent: #00e6a8;
+  --accent2: #7c5cff;
+  --down: #ff4d4d;
+  --warn: #ffb020;
+  --ok: #22c55e;
+  --card: #0d1117;
+  --line: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.7 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(7, 9, 12, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.logo {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.brand span {
+  color: var(--ink);
+}
+
+.nav a {
+  color: var(--muted);
+  margin-left: 12px;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: var(--ink);
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 18px;
+}
+
+/* Notices */
+.legend {
+  margin: 10px 0 14px;
+}
+
+.legend p {
+  margin: 6px 0;
+}
+
+.red {
+  color: var(--down);
+}
+
+.orange {
+  color: var(--warn);
+}
+
+.green {
+  color: var(--ok);
+}
+
+.cta a {
+  color: var(--accent2);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* Directory */
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.group {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.group h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.group h3 .tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 8px;
+  border: 1px solid var(--accent2);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 11px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.list a {
+  color: var(--ink);
+}
+
+.status-down a {
+  color: var(--down);
+}
+
+.status-warn a {
+  color: var(--warn);
+}
+
+/* onion badge (no JS) */
+a[href$=".onion"]::after {
+  content: "  onion";
+  font-size: 11px;
+  color: #001b12;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 1px 7px;
+  margin-left: 6px;
+}
+
+/* Info blocks */
+.block {
+  margin: 24px 0 0;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.block h4 {
+  margin: 0 0 6px;
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Responsive columns */
+@media (min-width: 740px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+h1 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.home {
+  display: inline-block;
+  margin: 6px 0 14px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.name {
+  font-weight: 700;
+}
+.slug {
+  color: var(--muted);
+}
+.slug a {
+  color: var(--ink);
+}
+.foot {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+h1 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.home {
+  display: inline-block;
+  margin: 6px 0 14px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.grid {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+}
+.panel h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.list {
+  list-style: square;
+  margin: 0 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.muted {
+  color: var(--muted);
+}
+.danger {
+  color: var(--danger);
+}
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #0b1118;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 0;
+}
+code {
+  word-break: break-all;
+}
+.foot {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+/* onion badge */
+a[href$=".onion"]::after {
+  content: "  onion";
+  font-size: 11px;
+  color: #001b12;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 1px 7px;
+  margin-left: 6px;
+}
