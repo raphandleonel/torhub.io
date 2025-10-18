@@ -19,4 +19,4 @@
  /               /index.html   200
 
 # 4) Fallback for everything else → Home
- /*              /               302
+ # /*              /               302
