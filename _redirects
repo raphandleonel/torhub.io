@@ -3,6 +3,12 @@
 /favicon.ico              /favicon.ico           200
 /robots.txt               /robots.txt            200
 /sitemap.xml              /sitemap.xml           200
+/site.webmanifest         /site.webmanifest      200
+/favicon-96x96.png        /favicon-96x96.png     200
+/favicon.svg              /favicon.svg           200
+/apple-touch-icon.png     /apple-touch-icon.png  200
+/web-app-manifest-192x192.png /web-app-manifest-192x192.png 200
+/web-app-manifest-512x512.png /web-app-manifest-512x512.png 200
 /pgp.txt                  /pgp.txt               200
 /mirrors.txt              /mirrors.txt           200
 /canary.txt               /canary.txt            200
@@ -22,4 +28,4 @@
 /                         /index.html            200
 
 # --- Fallback for everything else: serve Home content (no redirect) ---
-# /*                        /index.html            200
+/*                        /index.html            200
