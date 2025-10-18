@@ -1,8 +1,17 @@
-# pretty URLs (keep these first)
-*/index.html   /:splat/   301
-/*.html        /:splat    301
-/markets       /markets/  301
-/unverified    /unverified/ 301
+# 1) Root should just serve the file (no redirect)
+ /               /index.html   200
 
-# fallback: anything unmatched → home
-/*            /           302
+# 2) Pretty URLs (optional)
+ */index.html    /:splat/      301
+ /*.html         /:splat       301
+ /markets        /markets/     301
+ /unverified     /unverified/  301
+
+# 3) Let assets and special files bypass the fallback
+ /assets/*       /assets/:splat   200
+ /favicon.ico    /favicon.ico     200
+ /robots.txt     /robots.txt      200
+ /sitemap.xml    /sitemap.xml     200
+
+# 4) Fallback for everything else → Home (actual redirect)
+ /*              /               302
