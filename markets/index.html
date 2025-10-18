@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>torhub.io — Markets (shortnames & verified pages)</title>
+  <meta name="description" content="Directory of market shortnames on TorHub. Jump to each market’s verified page with onion links and PGP‑signed mirrors. No JavaScript." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://torhub.io/markets/" />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root{--bg:#07090c;--ink:#e6f2ff;--muted:#9fb2c8;--accent:#00e6a8;--warn:#ffb020;--danger:#ff4d4d;--card:#0d1117;--line:rgba(255,255,255,.08)}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace}
+    a{color:var(--ink);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    header{padding:8px 0 12px}
+    .brand{font-weight:800;display:flex;align-items:center;gap:10px}
+    .dot{width:10px;height:10px;border-radius:9999px;background:var(--accent)}
+    h1{font-size:20px;margin:10px 0}
+    .home{display:inline-block;margin:6px 0 14px;padding:8px 12px;border:1px solid var(--line);border-radius:8px}
+    .grid{display:grid;gap:14px}
+    @media(min-width:780px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1040px){.grid{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+    .card h2{margin:0 0 6px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .name{font-weight:700}
+    .slug{color:var(--muted)}
+    .slug a{color:var(--ink)}
+    .foot{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="wrap" itemscope itemtype="https://schema.org/CollectionPage">
+    <header>
+      <div class="brand"><span class="dot" aria-hidden="true"></span><span>torhub.io</span></div>
+      <h1 itemprop="name">Markets — shortnames</h1>
+      <nav aria-label="Breadcrumb">
+        <a class="home" href="/">← Home</a>
+      </nav>
+      <p class="muted" itemprop="description">Use these shortnames to jump to each market’s detail page with verified onion links and PGP‑signed mirror notes.</p>
+    </header>
+
+    <main class="grid" aria-label="Market shortnames" itemprop="mainEntity" itemscope itemtype="https://schema.org/ItemList">
+      <section class="card" aria-labelledby="m-current">
+        <h2 id="m-current">Current markets</h2>
+        <ul class="list">
+          <li class="row" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="name" itemprop="name">DrugHub</span>
+            <span class="slug"><a itemprop="url" href="/markets/drughub/">/markets/drughub/</a></span>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li class="row" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span class="name" itemprop="name">Dark Matter</span>
+            <span class="slug"><a itemprop="url" href="/markets/darkmatter/">/markets/darkmatter/</a></span>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ul>
+      </section>
+
+    </main>
+
+    <footer class="foot">
+      <a class="home" href="/">← Back to torhub.io home</a>
+    </footer>
+  </div>
+</body>
+</html>

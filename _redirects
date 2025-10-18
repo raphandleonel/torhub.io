@@ -1,0 +1,8 @@
+# pretty URLs (keep these first)
+*/index.html   /:splat/   301
+/*.html        /:splat    301
+/markets       /markets/  301
+/unverified    /unverified/ 301
+
+# fallback: anything unmatched → home
+/*            /           302

@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>torhub.io — darknet research directory (verified onion links, no JS)</title>
+  <meta name="description"
+    content="TorHub is a researcher‑first directory of verified onion resources. Human‑verified mirrors, signed proofs, and live status labels. No JavaScript. No tracking. Submit or remove listings via PGP‑signed requests." />
+  <meta http-equiv="onion-location" content="http://YOUR_ONION_ADDRESS.onion" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="torhub" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <style>
+    /* TORHUB.IO — mobile‑first, no JS, brand look */
+    :root {
+      --bg: #07090c;
+      --ink: #e6f2ff;
+      --muted: #9fb2c8;
+      --accent: #00e6a8;
+      --accent2: #7c5cff;
+      --down: #ff4d4d;
+      --warn: #ffb020;
+      --ok: #22c55e;
+      --card: #0d1117;
+      --line: rgba(255, 255, 255, .08);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.7 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none
+    }
+
+    a:hover {
+      color: var(--accent)
+    }
+
+    /* Header */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 9, 12, .85);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .bar {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .3px
+    }
+
+    .logo {
+      width: 10px;
+      height: 10px;
+      border-radius: 9999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px var(--accent)
+    }
+
+    .brand span {
+      color: var(--ink)
+    }
+
+    .nav a {
+      color: var(--muted);
+      margin-left: 12px;
+      font-size: 14px
+    }
+
+    .nav a:hover {
+      color: var(--ink)
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 20px 18px
+    }
+
+    /* Notices */
+    .legend {
+      margin: 10px 0 14px
+    }
+
+    .legend p {
+      margin: 6px 0
+    }
+
+    .red {
+      color: var(--down)
+    }
+
+    .orange {
+      color: var(--warn)
+    }
+
+    .green {
+      color: var(--ok)
+    }
+
+    .cta a {
+      color: var(--accent2);
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px
+    }
+
+    /* Directory */
+    .grid {
+      display: grid;
+      gap: 16px
+    }
+
+    .group {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px
+    }
+
+    .group h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--muted)
+    }
+
+    .group h3 .tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 8px;
+      border: 1px solid var(--accent2);
+      border-radius: 999px;
+      color: var(--ink);
+      font-size: 11px
+    }
+
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px
+    }
+
+    .list a {
+      color: var(--ink)
+    }
+
+    .status-down a {
+      color: var(--down)
+    }
+
+    .status-warn a {
+      color: var(--warn)
+    }
+
+    /* onion badge (no JS) */
+    a[href$=".onion"]::after {
+      content: "  onion";
+      font-size: 11px;
+      color: #001b12;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 1px 7px;
+      margin-left: 6px
+    }
+
+    /* Info blocks */
+    .block {
+      margin: 24px 0 0;
+      border-top: 1px solid var(--line);
+      padding-top: 14px
+    }
+
+    .block h4 {
+      margin: 0 0 6px;
+      color: var(--accent)
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    /* Responsive columns */
+    @media(min-width:740px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media(min-width:1000px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header" role="banner">
+    <div class="bar">
+      <div class="brand"><span class="logo" aria-hidden="true"></span><span>torhub.io</span></div>
+      <nav class="nav" aria-label="Site">
+        <a href="#directory">Directory</a>
+        <a href="#pgp">PGP</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <h1 class="cta"><a href="/">torhub.io — darknet research directory</a></h1>
+    <p class="muted" style="margin:-8px 0 12px">Human‑curated <strong>anti‑phishing index</strong> of onion resources
+      for analysts and journalists. <strong>No JavaScript</strong>. <strong>No tracking</strong>.</p>
+
+    <div class="legend">
+      <p class="cta"><a href="http://YOUR_ONION_ADDRESS.onion" target="_blank" rel="noopener">Open our onion service</a>
+      </p>
+      <p class="red">Red = prolonged downtime • <span class="orange">Orange = DDoS/maintenance</span></p>
+      <p>Prefer <a href="https://www.torproject.org" target="_blank" rel="noopener">Tor Browser</a>. Some links require
+        .onion access.</p>
+    </div>
+
+    <!-- DIRECTORY (uniquely organized as Collections + Utilities to avoid 1:1 with tor.taxi) -->
+    <section id="directory" class="grid" aria-label="Directory">
+      <!-- Collections -->
+      <div class="group">
+        <h3>Newsrooms <span class="tag">reports</span></h3>
+        <ul class="list">
+          <li class="status-down"><a href="http://tortimeswqlzti2aqbjoieisne4ubyuoeiiugel2layyudcfrwln76qd.onion"
+              target="_blank" rel="noopener">The Tor Times</a></li>
+          <li><a href="http://ttq5m3lsdhjysspvof6m72lbygclzyeelvn3wgjj7m3fr4djvbgepwyd.onion" target="_blank"
+              rel="noopener">Monero Observer</a></li>
+          <li><a href="https://www.bbcnewsd73hkzno2ini43t4gblxvycyac5aw4gnv7t2rccijh7745uqd.onion" target="_blank"
+              rel="noopener">BBC</a></li>
+          <li class="status-down"><a href="https://www.nytimesn7cgmftshazwhfgzm37qxb44r64ytbb2dj3x62d2lljsciiyd.onion"
+              target="_blank" rel="noopener">The New York Times</a></li>
+          <li><a href="http://p53lf57qovyuvwsc6xnrppyply3vtqm7l6pcobkmyqsiofyeznfu5uqd.onion" target="_blank"
+              rel="noopener">ProPublica</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Marketplaces <span class="tag">commerce</span></h3>
+        <ul class="list">
+          <li><a href="http://drughub666py6fgnml5kmxa7fva5noppkf6wkai4fwwvzwt4rz645aqd.onion" target="_blank"
+              rel="noopener">DrugHub</a></li>
+          <li><a href="http://darkmat3kdxestusl437urshpsravq7oqb7t3m36u2l62vnmmldzdmid.onion" target="_blank"
+              rel="noopener">Dark Matter</a> — <a
+              href="http://darkmmk3owyft4zzg3j3t25ri4z5bw7klapq6q3l762kxra72sli4mid.onion" target="_blank"
+              rel="noopener">2</a> <a href="http://darkmmro6j5xekpe7jje74maidkkkkw265nngjqxrv4ik7v3aiwdbtad.onion"
+              target="_blank" rel="noopener">3</a> <a href="/darkmatter">+</a></li>
+          <li><a href="http://fairfffoxrgxgi6tkcaxhxre2hpwiuf6autt75ianjkvmcn65dxxydad.onion" target="_blank"
+              rel="noopener">FairTrade</a></li>
+        </ul>
+        <p class="small muted" style="margin-top:8px">
+          <a href="/markets/">All market shortnames →</a>
+        </p>
+
+      </div>
+
+      <div class="group">
+        <h3>Communities <span class="tag">forums</span></h3>
+        <ul class="list">
+          <li><a href="http://dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion" target="_blank"
+              rel="noopener">Dread</a></li>
+          <li><a href="http://pitchprash4aqilfr7sbmuwve3pnkpylqwxjbj2q5o4szcfeea6d27yd.onion" target="_blank"
+              rel="noopener">Pitch</a> — <a href="http://pitchzzzoot5i4cpsblu2d5poifsyixo5r4litxkukstre5lrbjakxid.onion"
+              target="_blank" rel="noopener">2</a></li>
+          <li><a href="http://nzdnmfcf2z5pd3vwfyfy3jhwoubv6qnumdglspqhurqnuvr52khatdad.onion" target="_blank"
+              rel="noopener">NZ Forum</a></li>
+          <li><a href="http://germania7zs27fu3gi76wlr5rd64cc2yjexyzvrbm4jufk7pibrpizad.onion" target="_blank"
+              rel="noopener">Germania</a></li>
+          <li class="status-down"><a href="http://xssforumv3isucukbxhdhwz67hoa5e2voakcfkuieq4ch257vsburuid.onion"
+              target="_blank" rel="noopener">XSS.is</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Discovery <span class="tag">search</span></h3>
+        <ul class="list">
+          <li><a href="http://volkancfgpi4c7ghph6id2t7vcntenuly66qjt6oedwtjmyj4tkk5oqd.onion" target="_blank"
+              rel="noopener">VormWeb</a></li>
+          <li><a href="https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion" target="_blank"
+              rel="noopener">DuckDuckGo</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Hosting & Uploaders <span class="tag">files</span></h3>
+        <ul class="list">
+          <li><a href="http://dumpliwoard5qsrrsroni7bdiishealhky4snigbzfmzcquwo3kml4id.onion" target="_blank"
+              rel="noopener">dump.li</a> <a href="/dumpli">+</a></li>
+          <li><a href="http://dkforestseeaaq2dqz2uflmlsybvnq2irzn4ygyvu53oazyorednviid.onion" target="_blank"
+              rel="noopener">DarkForest</a></li>
+          <li><a href="http://eternalcbrzpicytj4zyguygpmkjlkddxob7tptlr25cdipe5svyqoqd.onion" target="_blank"
+              rel="noopener">Eternal Hosting</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Core Services <span class="tag">tools</span></h3>
+        <ul class="list">
+          <li><a href="http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion" target="_blank"
+              rel="noopener">The Tor Project</a></li>
+          <li><a href="http://lldan5gahapx5k7iafb3s4ikijc4ni7gx5iywdflkba5y2ezyg6sjgyd.onion" target="_blank"
+              rel="noopener">OnionShare</a></li>
+          <li><a href="http://featherdvtpi7ckdbkb2yxjfwx3oyvr3xjz3oo4rszylfzjdg6pbm3id.onion" target="_blank"
+              rel="noopener">Feather Wallet</a></li>
+          <li><a href="http://archiveiya74codqgiixo33q62qlrqtkgmcitqx5u2oeqnmn5bpcbiyd.onion" target="_blank"
+              rel="noopener">Archive.is</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Messaging <span class="tag">email & jabber</span></h3>
+        <ul class="list">
+          <li><a href="http://rurcblzhmdk22kttfkel2zduhyu3r6to7knyc7wiorzrx5gw4c3lftad.onion" target="_blank"
+              rel="noopener">cock.li</a> — <a
+              href="http://xdkriz6cn2avvcr2vks5lvvtmfojz2ohjzj4fhyuka55mvljeso2ztqd.onion" target="_blank"
+              rel="noopener">2</a></li>
+          <li><a href="http://tp7mtouwvggdlm73vimqkuq7727a4ebrv4vf4cnk6lfg4fatxa6p2ryd.onion" target="_blank"
+              rel="noopener">altaddress.org</a></li>
+          <li><a href="http://pissmaiamldg5ciulncthgzudvh5d55dismyqf6qdkx372n2b5osefid.onion" target="_blank"
+              rel="noopener">PissMail</a></li>
+          <li><a href="http://protonmailrmez3lotccipshtkleegetolb73fuirgj7r4o4vfu7ozyd.onion" target="_blank"
+              rel="noopener">ProtonMail</a></li>
+          <li><a href="http://6voaf7iamjpufgwoulypzwwecsm2nu7j5jpgadav2rfqixmpl4d65kid.onion" target="_blank"
+              rel="noopener">XMPP.is</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>References <span class="tag">guides</span></h3>
+        <ul class="list">
+          <li><a href="http://www.dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion" target="_blank"
+              rel="noopener">Whonix</a></li>
+          <li><a href="http://biblemeowimkh3utujmhm6oh2oeb3ubjw2lpgeq3lahrfr2l6ev6zgyd.onion" target="_blank"
+              rel="noopener">Darknet Bible</a></li>
+          <li><a href="http://jqibjqqagao3peozxfs53tr6aecoyvctumfsc2xqniu4xgcrksal2iqd.onion" target="_blank"
+              rel="noopener">OpSec Manual</a></li>
+          <li class="status-down"><a href="http://x4ijfwy76n6jl7rs4qyhe6qi5rv6xyuos3kaczgjpjcajigjzk3k7wqd.onion"
+              target="_blank" rel="noopener">Onion Archive</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Privacy & Crypto <span class="tag">security</span></h3>
+        <ul class="list">
+          <li><a href="http://o54hon2e2vj6c7m3aqqu6uyece65by3vgoxxhlqlsvkmacw6a7m7kiad.onion" target="_blank"
+              rel="noopener">Mullvad</a></li>
+          <li><a href="http://www.qubesosfasa4zl44o4tws22di6kepyzfeqv3tg4e3ztknltfxqrymdad.onion" target="_blank"
+              rel="noopener">Qubes OS</a></li>
+          <li><a href="http://monerotoruzizulg5ttgat2emf4d6fbmiea25detrmmy7erypseyteyd.onion" target="_blank"
+              rel="noopener">Monero</a></li>
+          <li><a href="http://blkchairbknpn73cfjhevhla7rkp4ed5gg2knctvv7it4lioy22defid.onion" target="_blank"
+              rel="noopener">Blockchair</a></li>
+          <li><a href="http://livk2fpdv4xjnjrbxfz2tw3ptogqacn2dwfzxbxr3srinryxrcewemid.onion" target="_blank"
+              rel="noopener">monero.fail</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Networks & VPN <span class="tag">access</span></h3>
+        <ul class="list">
+          <li><a href="http://stormwayszuh4juycoy4kwoww5gvcu2c4tdtpkup667pdwe4qenzwayd.onion" target="_blank"
+              rel="noopener">Cryptostorm</a> <a href="/cryptostorm">+</a></li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <h3>Escrow & Reputation <span class="tag">risk</span></h3>
+        <ul class="list">
+          <li><a href="http://fairfffoxrgxgi6tkcaxhxre2hpwiuf6autt75ianjkvmcn65dxxydad.onion" target="_blank"
+              rel="noopener">FairTrade</a></li>
+          <li class="status-down"><a href="http://keybase5wmilwokqirssclfnsqrjdsi7jdir5wy7y7iu3tanwmtp6oid.onion"
+              target="_blank" rel="noopener">Keybase</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Unique TorHub content for SEO and clarity -->
+    <section class="block" id="methodology">
+      <h4>How TorHub verifies links</h4>
+      <ul>
+        <li>We require <strong>signed proofs</strong> (PGP, on‑site notices, or verified cross‑posts).</li>
+        <li>We track <strong>mirrors</strong> and prefer onion services with reproducible identifiers.</li>
+        <li>We label availability as <span class="green">online</span>, <span class="orange">DDoS/maintenance</span>, or
+          <span class="red">prolonged downtime</span>.
+        </li>
+      </ul>
+    </section>
+
+    <section class="block" id="pgp">
+      <h4>Safety, PGP & mirrors</h4>
+      <p><a href="/pgp.txt">PGP</a> • <a href="/mirrors.txt">Mirrors</a> • <a href="/canary.txt">Canary</a> • <a
+          href="/unverified">Avoid list</a></p>
+      <p class="muted">Use the official Tor Browser, avoid scripts, and verify addresses out‑of‑band.</p>
+    </section>
+
+    <section class="block" id="ethics">
+      <h4>Research ethics</h4>
+      <p class="muted">TorHub is for researchers and journalists. We do not endorse third‑party sites, accept payments,
+        or run affiliate links.</p>
+    </section>
+
+    <section id="contact" class="block">
+      <h4>Contact & submissions</h4>
+      <p class="muted">Want a site listed or removed? Send a PGP‑signed request.</p>
+      <p><strong>Email:</strong> contact@torhub.io</p>
+      <p><strong>Subdread:</strong> <a href="#" target="_blank" rel="noopener">/d/YourSub</a></p>
+      <p><strong>Pitch:</strong> <a href="#" target="_blank" rel="noopener">@YourHandle</a></p>
+      <h4>Donations</h4>
+      <label for="xmr" class="muted">Monero</label>
+      <input id="xmr" value="YOUR_MONERO_ADDRESS_GOES_HERE" readonly
+        style="width:100%;background:#0a0f15;border:1px solid var(--line);border-radius:8px;padding:10px;font:inherit;color:var(--ink);user-select:all;-webkit-user-select:all" />
+      <p class="tiny muted">Tip: tap/click the field then copy — no JS needed.</p>
+    </section>
+  </main>
+</body>
+
+</html>
