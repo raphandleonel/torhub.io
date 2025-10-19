@@ -379,6 +379,69 @@ code {
   line-height: 1.6;
 }
 
+/* Universal Footer */
+.universal-footer {
+  margin-top: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+  background: var(--card);
+}
+
+.footer-content {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: grid;
+  gap: 20px;
+}
+
+.footer-section h4 {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--ink);
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (min-width: 740px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* Markets tiles */
 .tile-grid {
   display: grid;

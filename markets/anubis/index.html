@@ -18,17 +18,23 @@
 </head>
 <body>
   <div class="wrap" itemscope itemtype="https://schema.org/WebPage">
-    <header>
-      <div class="brand"><span class="dot" aria-hidden="true"></span><span>torhub.io</span></div>
+    <header class="header" role="banner">
+      <div class="bar">
+        <div class="brand"><span class="logo" aria-hidden="true" alt="TorHub.io logo"></span><span>torhub.io</span></div>
+        <nav class="nav" aria-label="Site">
+          <a href="/markets/">Markets</a>
+          <a href="/unverified">Avoid list</a>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
       <h1 itemprop="name">Anubis Market — verified links</h1>
       <nav aria-label="Breadcrumb">
         <a class="home" href="/">← Home</a>
         <a class="home" href="/markets/">Markets</a>
       </nav>
       <p class="muted" itemprop="description">Official Anubis onion endpoints gathered for research and anti‑phishing. Always verify addresses via signed notes and cross‑announcements.</p>
-    </header>
-
-    <main>
       <section class="panel" aria-labelledby="links">
         <h2 id="links">Links</h2>
         <ul class="list" itemprop="mainEntity" itemscope itemtype="https://schema.org/ItemList">
@@ -46,8 +52,55 @@
       </section>
     </main>
 
-    <footer class="foot">
-      <a class="home" href="/">← Back to torhub.io home</a>
+    <!-- Universal Footer -->
+    <footer class="universal-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Directory</h4>
+          <ul class="footer-links">
+            <li><a href="/markets/">All Markets</a></li>
+            <li><a href="/markets/anubis/">Anubis</a></li>
+            <li><a href="/markets/inferno/">Inferno</a></li>
+            <li><a href="/markets/drughub/">DrugHub</a></li>
+            <li><a href="/markets/venom/">Venom</a></li>
+            <li><a href="/markets/kryzon/">Kryzon</a></li>
+            <li><a href="/markets/osiris/">Osiris</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/unverified">Avoid List</a></li>
+            <li><a href="https://www.torproject.org" target="_blank" rel="noopener">Tor Browser</a></li>
+            <li><a href="http://torhubtu5wg5hvv3t4x4oed4qmuwrdnwsjwzoqa3wbqelbulpivxdwad.onion" target="_blank" rel="noopener">Onion Version</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:torhub_io@proton.me">Email</a></li>
+            <li><a href="xmpp:torhub@jabb3r.de">Jabber</a></li>
+            <li><a href="https://dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion/u/TorHub/" target="_blank" rel="noopener">Dread</a></li>
+            <li><a href="https://pitchprash4aqilfr7sbmuwve3pnkpylqwxjbj2q5o4szcfeea6d27yd.onion/@torhub" target="_blank" rel="noopener">Pitch</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>About</h4>
+          <ul class="footer-links">
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#methodology">Methodology</a></li>
+            <li><a href="/#safety">Safety</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 TorHub.io — Verified Darknet Directory | No JavaScript • No Tracking • Privacy First</p>
+      </div>
     </footer>
   </div>
 </body>
