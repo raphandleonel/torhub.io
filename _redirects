@@ -9,20 +9,16 @@
 /apple-touch-icon.png     /apple-touch-icon.png  200
 /web-app-manifest-192x192.png /web-app-manifest-192x192.png 200
 /web-app-manifest-512x512.png /web-app-manifest-512x512.png 200
-/pgp.txt                  /pgp.txt               200
-/mirrors.txt              /mirrors.txt           200
-/canary.txt               /canary.txt            200
 
-# --- Markets: let existing files/folders pass through ---
-# This makes /markets/, /markets/drughub/, /markets/darkmatter/ serve their own index.html
-/markets/*                /markets/:splat        200
-/markets/index.html       /markets/              301
-/markets                  /markets/              301
+# --- Markets: serve directly without redirects ---
+/markets/                 /markets/index.html     200
+/markets                  /markets/index.html     301
+/markets/*                /markets/:splat         200
 
-# --- Unverified section (same idea) ---
-/unverified/*             /unverified/:splat     200
-/unverified/index.html    /unverified/           301
-/unverified               /unverified/           301
+# --- Unverified section: serve directly without redirects ---
+/unverified/              /unverified/index.html  200
+/unverified               /unverified/index.html  301
+/unverified/*             /unverified/:splat      200
 
 # --- WWW → root (catch http and https) ---
 www.torhub.io/*                https://torhub.io/:splat        301
