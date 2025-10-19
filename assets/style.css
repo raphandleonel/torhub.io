@@ -460,6 +460,12 @@ code {
 .tile-grid {
   display: grid;
   gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 480px) {
+  .tile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 740px) {
   .tile-grid {
@@ -471,6 +477,23 @@ code {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Mobile-specific improvements */
+@media (max-width: 479px) {
+  .tile {
+    padding: 12px;
+  }
+  .tile h3 {
+    font-size: 15px;
+  }
+  .tile .desc {
+    font-size: 13px;
+  }
+  .btn {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
 .tile {
   background: var(--card);
   border: 1px solid var(--line);
@@ -479,6 +502,9 @@ code {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .tile h3 {
   margin: 0;
@@ -493,13 +519,20 @@ code {
   display: flex;
   gap: 10px;
   margin-top: 6px;
+  flex-wrap: wrap;
 }
 .btn {
   display: inline-block;
-  padding: 6px 10px;
+  padding: 8px 12px;
   border: 1px solid var(--line);
   border-radius: 8px;
   font-size: 13px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1;
+  max-width: 100%;
 }
 .btn-primary {
   border-color: var(--accent2);
