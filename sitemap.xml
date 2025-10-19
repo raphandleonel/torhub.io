@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://torhub.io/</loc><lastmod>2025-10-18</lastmod></url>
-  <url><loc>https://torhub.io/markets/</loc><lastmod>2025-10-18</lastmod></url>
-  <url><loc>https://torhub.io/markets/drughub/</loc><lastmod>2025-10-18</lastmod></url>
-  <url><loc>https://torhub.io/markets/darkmatter/</loc><lastmod>2025-10-18</lastmod></url>
-  <url><loc>https://torhub.io/unverified/</loc><lastmod>2025-10-18</lastmod></url>
+  <url><loc>https://torhub.io/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/anubis/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/inferno/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/drughub/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/venom/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/kryzon/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/markets/osiris/</loc><lastmod>2025-10-19</lastmod></url>
+  <url><loc>https://torhub.io/unverified/</loc><lastmod>2025-10-19</lastmod></url>
 </urlset>
