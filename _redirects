@@ -24,8 +24,8 @@
 /unverified/index.html    /unverified/           301
 /unverified               /unverified/           301
 
-# Redirect www → root
-https://www.torhub.io/* https://torhub.io/:splat 301
+# --- WWW → root (catch http and https) ---
+www.torhub.io/*                https://torhub.io/:splat        301
 
 
 # --- Root ---
