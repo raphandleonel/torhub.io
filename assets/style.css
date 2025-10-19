@@ -375,3 +375,53 @@ code {
   margin: 0;
   line-height: 1.6;
 }
+
+/* Markets tiles */
+.tile-grid {
+  display: grid;
+  gap: 16px;
+}
+@media (min-width: 740px) {
+  .tile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .tile-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.tile {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tile h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--ink);
+}
+.tile .desc {
+  color: var(--muted);
+  font-size: 14px;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.btn-primary {
+  border-color: var(--accent2);
+  color: var(--ink);
+}
