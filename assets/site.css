@@ -263,6 +263,27 @@ h1 {
   text-align: center;
 }
 
+/* Utilities extracted from inline styles */
+.intro-tight {
+  margin: -8px 0 12px;
+}
+
+.mt-8 {
+  margin-top: 8px;
+}
+
+.copy-field {
+  width: 100%;
+  background: #0a0f15;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  color: var(--ink);
+  user-select: all;
+  -webkit-user-select: all;
+}
+
 .dot {
   width: 10px;
   height: 10px;
