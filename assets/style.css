@@ -339,7 +339,7 @@ h1 {
   color: var(--muted);
   text-transform: uppercase;
 }
-.list {
+.u-list {
   list-style: square;
   margin: 0 0 0 18px;
   padding: 0;
@@ -492,6 +492,32 @@ code {
   .btn {
     padding: 10px 12px;
     font-size: 14px;
+  }
+  
+  /* Market page mobile fixes */
+  .panel {
+    padding: 10px;
+    overflow-x: auto;
+  }
+  .list a {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    font-size: 13px;
+    line-height: 1.4;
+    display: block;
+    padding: 4px 0;
+  }
+  .wrap {
+    padding: 8px;
+  }
+  h1 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  .muted {
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 .tile {
