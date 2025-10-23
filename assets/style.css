@@ -173,6 +173,13 @@ a:hover {
   gap: 8px;
 }
 
+.list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
 .list a {
   color: var(--ink);
 }
@@ -197,6 +204,19 @@ a:hover {
   color: var(--ink);
   font-size: 11px;
   text-decoration: none;
+}
+
+/* Mobile optimization */
+@media (max-width: 640px) {
+  .link-tag {
+    font-size: 10px;
+    padding: 3px 7px;
+    margin: 0 3px;
+  }
+  
+  .list li {
+    gap: 6px;
+  }
 }
 
 /* Info blocks */
@@ -506,7 +526,7 @@ code {
     font-size: 13px;
     line-height: 1.4;
     display: block;
-    padding: 4px 0;
+    /* padding: 4px 0; */
   }
   .wrap {
     padding: 8px;
