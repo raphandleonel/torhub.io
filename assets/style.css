@@ -351,7 +351,8 @@ h1 {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
 }
 .panel h2 {
   margin: 0 0 8px;
@@ -383,6 +384,16 @@ pre {
 }
 code {
   word-break: break-all;
+}
+.pgp-key {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.pgp-key code {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+  display: block;
 }
 .foot {
   margin-top: 18px;
